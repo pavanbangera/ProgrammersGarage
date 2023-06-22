@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import AuthContext from "./AuthContext";
 import { useNavigate } from 'react-router-dom';
 
 const AuthState = (props) => {
     const navigate = useNavigate();
+    const [userCount, setUserCount] = useState("0")
     const Login = async (email, password) => {
         const response = await fetch(`${process.env.REACT_APP_API}/api/auth/loginAdmin`, {
             method: "POST",
@@ -22,8 +23,21 @@ const AuthState = (props) => {
             alert(json.success)
         }
     }
+
+    const countUsers = async () => {
+        const response = await fetch(`${process.env.REACT_APP_API}/api/auth/countUser`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+        });
+        const json = await response.json()
+        setUserCount(json.toString())
+
+    }
     return (
-        <AuthContext.Provider value={{ Login }}>
+        <AuthContext.Provider value={{ Login, userCount, countUsers }}>
             {props.children}
         </AuthContext.Provider>
     )

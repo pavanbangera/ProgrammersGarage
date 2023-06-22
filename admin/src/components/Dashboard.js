@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import BlogContext from '../context/Blog/BlogContext';
 import CourseContext from '../context/Course/CourseContext';
 import TutorialContext from '../context/Tutorial/TutorialContext';
-
+import AuthContext from '../context/Auth/AuthContext';
 
 
 const Dashboard = () => {
     const { countBlog, blogCount } = useContext(BlogContext)
     const { countCourse, courseCount } = useContext(CourseContext)
     const { countTutorial, tutorialCount } = useContext(TutorialContext)
+    const { userCount, countUsers } = useContext(AuthContext)
+
     const navigate = useNavigate();
     useEffect(() => {
         if (!localStorage.getItem('auth-token')) {
@@ -19,6 +21,7 @@ const Dashboard = () => {
                 await countBlog();
                 await countCourse();
                 await countTutorial();
+                await countUsers();
             })();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -58,7 +61,7 @@ const Dashboard = () => {
                             <div className="card bg-primary text-light">
                                 <div className="card-body text-center">
                                     <h5 className="card-title">Users</h5>
-                                    <h1 className="card-text">21</h1>
+                                    <h1 className="card-text">{userCount}</h1>
                                 </div>
                             </div>
                         </div>

@@ -26,6 +26,8 @@ import BugsWorldItem from './components/BugsWorldItem';
 import AlertBox from './components/AlertBox'
 import AlertState from './context/alert/AlertState'
 import TopBarLoader from './components/TopBarLoader';
+import Contact from './components/Contact';
+import Verify from './components/Verify';
 
 
 function App () {
@@ -63,6 +65,8 @@ function App () {
                         <Route exact path='/signup' element={<SignupPage />}></Route>
                         <Route exact path='/bugs' element={<BugsWorld />}></Route>
                         <Route exact path='/bugs/:bg' element={<BugsWorldItem />}></Route>
+                        <Route exact path='/contact' element={<Contact />}></Route>
+                        <Route exact path='/user/verify/:id' element={<Verify />}></Route>
                         <Route path='/*' element={<NotFound />}></Route>
                       </Routes>
                       <Footer />

@@ -51,7 +51,7 @@ const TutorialAdd = () => {
 
                             <div className="mb-3">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Tutorial title</label>
-                                <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the course title" required />
+                                <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the tutorial title" required />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="formFileSm" className="form-label">Add Cover photo</label>

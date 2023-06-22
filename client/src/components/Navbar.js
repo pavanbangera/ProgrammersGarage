@@ -36,13 +36,16 @@ const Navbar = (props) => {
                                 <Link className={`nav-link ${location.pathname === "/course" ? "active" : ""}`} to="/course">Courses</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname === "/tutorial" ? "active" : ""}`} to="/tutorial">Tutorials</Link>
+                                <Link className={`nav-link ${location.pathname === "/tutorial" ? "active" : ""}`} to="/tutorial">Tutorial</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname === "/blog" ? "active" : ""}`} to="/blog">Blogs</Link>
+                                <Link className={`nav-link ${location.pathname === "/blog" ? "active" : ""}`} to="/blog">Blog</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === "/bugs" ? "active" : ""}`} to="/bugs">BugsWorld</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className={`nav-link ${location.pathname === "/contact" ? "active" : ""}`} to="/contact">Contact</Link>
                             </li>
                             {/* <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">

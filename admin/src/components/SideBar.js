@@ -35,13 +35,13 @@ const SideBar = () => {
                                     <Link to="/course" className="nav-link px-0"> <span className="d-none d-sm-inline">Course</span></Link>
                                 </li>
                                 <li className="w-100">
-                                    <Link to="/lession" className="nav-link px-0"> <span className="d-none d-sm-inline">Lession</span></Link>
+                                    <Link to="/lession" className="nav-link px-0"> <span className="d-none d-sm-inline">Lessons</span></Link>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <Link to="/tutorial" className="nav-link px-0 align-middle">
-                                <i className="fa-solid fa-book"></i> <span className="ms-1 d-none d-sm-inline">Tutorials</span></Link>
+                                <i className="fa-solid fa-book"></i> <span className="ms-1 d-none d-sm-inline">Tutorial</span></Link>
                         </li>
                         <li>
                             <Link to="/blog" className="nav-link px-0 align-middle">

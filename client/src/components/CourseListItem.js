@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import CourseContext from '../context/Course/CourseContext';
 import SideBar from './assets/SideBar';
 import ReactPlayer from 'react-player'
@@ -8,6 +8,7 @@ import CommentBox from './CommentBox';
 import SpinnerBar from './SpinnerBar'
 
 const CourseListItem = () => {
+    const location = useLocation()
 
     const params = useParams();
     const { fetchCourse, getLession, fetchLession, getLessionData, loader, setLoader, error } = useContext(CourseContext);
@@ -19,7 +20,7 @@ const CourseListItem = () => {
             setLoader(true)
         }
         // eslint-disable-next-line
-    }, [params.id]);
+    }, [params.id, location.pathname === `/course/${params.id}`]);
 
     useEffect(() => {
         if (params.name && params.id) {
@@ -32,7 +33,7 @@ const CourseListItem = () => {
 
     const quillFormat = (content) => {
         if (content) {
-            const processedHtml = content.replace(/<img/g, '<img style="max-width: 400px; height: auto;"');
+            const processedHtml = content.replace(/<img/g, '<img style="max-width: 350px; height: auto;"');
             return { __html: processedHtml };
         }
         return { __html: '' };
@@ -55,7 +56,7 @@ const CourseListItem = () => {
                             <div className="col-lg-8 col-lg-offset-2 align-items-center text-start">
                                 {error && (<NotFound />)}
 
-                                {!params.name && getLession.course >= {} && (
+                                {!loader && !params.name && getLession.course >= {} && (
                                     <>
                                         <img
                                             src={getLession.course.cover}
@@ -74,7 +75,7 @@ const CourseListItem = () => {
                                         {/* <p className='text-start'>{fetchItem.description}</p> */}
                                     </>
                                 )}
-                                {params.name && (
+                                {!loader && params.name && (
                                     <>
                                         <ReactPlayer url={getLessionData.link}
                                             className="img-fluid"

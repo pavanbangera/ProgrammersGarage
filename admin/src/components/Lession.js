@@ -43,7 +43,7 @@ const Lession = () => {
                         <div className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                    <h5 className="modal-title" id="staticBackdropLabel">Add Lesson</h5>
                                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div className="modal-body">
@@ -57,7 +57,7 @@ const Lession = () => {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="exampleFormControlInput1" className="form-label">Lession Title</label>
-                                        <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the course title" required />
+                                        <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the lesson title" required />
                                     </div>
                                     <Editor value={description} onChange={handleEditorChange} />
                                     <div className="mb-3">

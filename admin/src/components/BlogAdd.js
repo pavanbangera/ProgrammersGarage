@@ -37,7 +37,7 @@ const BlogAdd = () => {
 
                             <div className="mb-3">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Blog title</label>
-                                <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the course title" required />
+                                <input type="text" className="form-control" id="title" name='title' value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter the blog title" required />
                             </div>
                             <Editor value={content} onChange={handleEditorChange} />
                         </div>

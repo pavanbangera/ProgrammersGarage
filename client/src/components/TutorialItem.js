@@ -15,7 +15,13 @@ const TutorialItem = () => {
         // eslint-disable-next-line
     }, [params.id])
 
-
+    const quillFormat = (content) => {
+        if (content) {
+            const processedHtml = content.replace(/<img/g, '<img style="max-width: 350px; height: auto;"');
+            return { __html: processedHtml };
+        }
+        return { __html: '' };
+    }
     return (
         <div className="container my-4">
             <div className="row  d-flex justify-content-center">
@@ -24,12 +30,13 @@ const TutorialItem = () => {
                     {loader && <SpinnerBar />}
 
 
-                    {params.id && (
+                    {!loader && params.id && (
                         <>
                             <h1>Tutorial on: {detail.title}</h1>
                             <hr />
                             <div className='text-start'>
-                                <div dangerouslySetInnerHTML={{ __html: detail.content }}></div>
+                                <div dangerouslySetInnerHTML={quillFormat(detail?.content)}></div>
+                                {/* <div dangerouslySetInnerHTML={{ __html: detail.content }}></div> */}
                             </div>
 
                         </>
